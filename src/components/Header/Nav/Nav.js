@@ -15,13 +15,16 @@ const Nav = () => {
         <div className="mx-3 hidden md:block"><img height={50} width={100} src={logo} alt="" /></div>
       <ul className=" flex flex-col md:flex-row justify-center items-center">
         <li>
-          <a className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" href="">Home</a>
+          <a className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" href="/">Home</a>
         </li>
         <li>
           <a className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" href="">About us</a>
         </li>
         <li>
-          <a className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" href="">Services</a>
+          <a className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" href="/service">Services</a>
+        </li>
+        <li>
+          <a className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" href="/trainer">Trainer</a>
         </li>
         <li>
           <a className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" href="">Blog</a>
