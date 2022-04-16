@@ -42,3 +42,6 @@ const trainer = [
         img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST20Igo4k_-r2YCB3M3UuSwqvTi0HGfZkahg&usqp=CAU"
     },
 ]
+
+
+export default trainer;
