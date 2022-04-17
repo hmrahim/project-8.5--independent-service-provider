@@ -33,7 +33,7 @@ const Nav = () => {
       
       </ul>
       <div className=" my-4 md:my-0 md:mx-3">
-          <Link className="text-xl bg-white py-2 px-4 rounded hover:text-black   text-orange-400 " to="">Login</Link>
+          <Link className="text-xl bg-white py-2 px-4 rounded hover:text-black   text-orange-400 " to="/login">Login</Link>
       </div>
     </nav>
     
