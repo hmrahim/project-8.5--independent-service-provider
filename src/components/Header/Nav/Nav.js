@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 import logo from "./w_logo.png"
 import { BeakerIcon,MenuIcon } from '@heroicons/react/solid'
 
@@ -15,24 +15,25 @@ const Nav = () => {
         <div className="mx-3 hidden md:block"><img height={50} width={100} src={logo} alt="" /></div>
       <ul className=" flex flex-col md:flex-row justify-center items-center">
         <li>
-          <a className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" href="/">Home</a>
+          <NavLink activeClassName="active" className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" to="/">Home</NavLink>
+        </li>
+      
+        <li>
+          <NavLink activeClassName="active" className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" to="/service">Services</NavLink>
         </li>
         <li>
-          <a className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" href="">About us</a>
+          <NavLink activeClassName="active" className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" to="/trainer">Trainer</NavLink>
         </li>
         <li>
-          <a className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" href="/service">Services</a>
+          <NavLink activeClassName="active" className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" to="/pricing">Pricing</NavLink>
         </li>
         <li>
-          <a className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" href="/trainer">Trainer</a>
-        </li>
-        <li>
-          <a className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" href="">Blog</a>
+          <NavLink activeClassName="active" className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" to="">Blog</NavLink>
         </li>
       
       </ul>
       <div className=" my-4 md:my-0 md:mx-3">
-          <a className="text-xl bg-white py-2 px-4 rounded hover:text-black   text-orange-400 " href="">Login</a>
+          <Link className="text-xl bg-white py-2 px-4 rounded hover:text-black   text-orange-400 " to="">Login</Link>
       </div>
     </nav>
     
