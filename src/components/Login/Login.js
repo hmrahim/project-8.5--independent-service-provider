@@ -1,7 +1,17 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 
+
 const Login = () => {
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
+  const handleEmail = e=> {
+    setEmail(e.target.value)
+  }
+  const handlePassword = e=> {
+    setPassword(e.target.value)
+  }
+  
   return (
     <div className="w-4/5 mx-auto">
       <div className="w-full md:w-2/5 mx-auto my-9 shadow-xl p-5">
