@@ -1,9 +1,18 @@
 import React from "react";
-import { Link, NavLink} from "react-router-dom";
+import { Link, NavLink, useNavigate} from "react-router-dom";
 import logo from "./w_logo.png"
 import { BeakerIcon,MenuIcon } from '@heroicons/react/solid'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from "../../../firebase.init"
+import {signOut} from "firebase/auth"
 
 const Nav = () => {
+  const navigate = useNavigate()
+  const [user, loading, error] = useAuthState(auth);
+  const logout = ()=> {
+    signOut(auth)
+    navigate("/login")
+  }
   return (
    <div>
        <div className="flex justify-between flex-row-reverse">
@@ -33,7 +42,12 @@ const Nav = () => {
       
       </ul>
       <div className=" my-4 md:my-0 md:mx-3">
+        {
+          user ? 
+         <a onClick={logout} className="text-xl bg-white py-2 px-4 rounded hover:text-black   text-orange-400 cursor-pointer" >Logout</a>
+          : 
           <Link className="text-xl bg-white py-2 px-4 rounded hover:text-black   text-orange-400 " to="/login">Login</Link>
+        }
       </div>
     </nav>
     
