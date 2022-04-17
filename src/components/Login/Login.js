@@ -4,6 +4,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useSignInWithGithub,useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const Login = () => {
   const [email,setEmail] = useState("")
@@ -14,6 +15,8 @@ const Login = () => {
     loginloading,
     loginerror,
   ] = useSignInWithEmailAndPassword(auth);
+  const [signInWithGithub, githubuser, githubloading, githuberror] = useSignInWithGithub(auth);
+  const [SignInWithGoogle, googleuser, googleloading, googleerror] = useSignInWithGithub(auth);
 
   const naviget = useNavigate()
   const handleEmail = e=> {
@@ -23,6 +26,12 @@ const Login = () => {
     setPassword(e.target.value)
   }
 if(loginuser){
+  naviget("/")
+}
+if(googleuser){
+  naviget("/")
+}
+if(githubuser){
   naviget("/")
 }
   const handleSubmit = e=> {
@@ -38,6 +47,26 @@ if(loginuser){
       toast.error(loginerror.message)
     }
 
+  }
+  const githubLogin = ()=> {
+    signInWithGithub()
+    if(githubuser){
+      toast.success("Login successfully")
+    }else{
+      toast.error(githuberror.message)
+    }
+   
+
+  }
+
+  const googleSignin = ()=> {
+    SignInWithGoogle()
+    if(googleuser){
+      toast.success("Login successfully")
+    }else{
+      toast.error(googleerror.message)
+    }
+    
   }
 
   return (
@@ -63,8 +92,8 @@ if(loginuser){
           <div className="h-[1px] w-2/4 bg-gray-700"></div>
         </div>
         <div className=" flex justify-center items-center my-4">
-          <p className="cursor-pointer mx-3 shadow p-3"><img width={50} height={50} src="https://i.ibb.co/kyXzxrD/Git-Hub-Mark-64px.png" alt="" /></p>
-          <p className="cursor-pointer mx-3 shadow p-3"><img width={50} height={50} src="https://i.ibb.co/dBW15dR/google-logo-9824.png" alt="" /></p>
+          <p onClick={githubLogin} className="cursor-pointer mx-3 shadow p-3"><img width={50} height={50} src="https://i.ibb.co/kyXzxrD/Git-Hub-Mark-64px.png" alt="" /></p>
+          <p onClick={googleSignin} className="cursor-pointer mx-3 shadow p-3"><img width={50} height={50} src="https://i.ibb.co/dBW15dR/google-logo-9824.png" alt="" /></p>
         </div>
         
       </div>
