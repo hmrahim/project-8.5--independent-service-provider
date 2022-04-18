@@ -16,10 +16,13 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [signInWithEmailAndPassword, loginuser, loginloading, loginerror] =
     useSignInWithEmailAndPassword(auth);
+
+
   const [signInWithGithub, githubuser, githubloading, githuberror] =
     useSignInWithGithub(auth);
+
   const [SignInWithGoogle, googleuser, googleloading, googleerror] =
-    useSignInWithGithub(auth);
+    useSignInWithGoogle(auth);
 
   const naviget = useNavigate();
   const handleEmail = (e) => {
