@@ -51,15 +51,15 @@ const Signup = () => {
           <form onSubmit={handleSubmit} action="">
               <div className="flex flex-col my-5 ">
                   <label htmlFor="">Name</label>
-                  <input onBlur={handleName} className="p-3 mt-2 border rounded w-full" placeholder="Name" type="text" name="" id="" />
+                  <input onBlur={handleName} required className="p-3 mt-2 border rounded w-full" placeholder="Name" type="text" name="" id="" />
               </div>
               <div className="flex flex-col my-5 ">
                   <label htmlFor="">Email</label>
-                  <input onBlur={handleEmail} className="p-3 mt-2 border rounded w-full" placeholder="Email address" type="email" name="" id="" />
+                  <input onBlur={handleEmail} required className="p-3 mt-2 border rounded w-full" placeholder="Email address" type="email" name="" id="" />
               </div>
               <div className="flex flex-col my-5 ">
                   <label htmlFor="">Password</label>
-                  <input  onBlur={handlePassword} className="p-3 mt-2 border rounded w-full" placeholder="Password" type="psssword" name="" id="" />
+                  <input  onBlur={handlePassword} required className="p-3 mt-2 border rounded w-full" placeholder="Password" type="psssword" name="" id="" />
               </div>
               <button className="py-3 px-4 bg-orange-400 w-full rounded text-white text-xl my-4" type="submit">Login</button>
               <ToastContainer></ToastContainer>

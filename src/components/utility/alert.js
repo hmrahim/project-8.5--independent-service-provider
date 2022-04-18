@@ -11,12 +11,12 @@ const sweetAlert = ()=> {
       })
       
       swalWithBootstrapButtons.fire({
-        title: 'Are you sure?',
+        title: 'Are you sure to purches?',
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Confirm',
-        cancelButtonText: 'cancel',
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No',
         reverseButtons: true
       }).then((result) => {
         if (result.isConfirmed) {

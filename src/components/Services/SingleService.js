@@ -8,7 +8,8 @@ const SingleService = ({ service }) => {
         <img src={service.logo} alt="" />
       </div>
       <h1 className="text-2xl font-semibold">{service.name}</h1>
-      <p className="">{service.desc}</p>
+      <p className="">{service.desc.slice(0,150)}</p>
+      <button className="py-2 px-3 bg-orange-400 rounded-lg my-3 text-white">Read more</button>
     </div>
   );
 };

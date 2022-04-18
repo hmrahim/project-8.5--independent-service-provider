@@ -91,6 +91,7 @@ const Login = () => {
               type="email"
               name=""
               id=""
+              required
             />
           </div>
           <div className="flex flex-col my-5 ">
@@ -102,6 +103,7 @@ const Login = () => {
               type="psssword"
               name=""
               id=""
+              required
             />
           </div>
           <button

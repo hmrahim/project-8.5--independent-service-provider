@@ -41,11 +41,12 @@ const Nav = () => {
         <li>
           <NavLink activeClassName="active" className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" to="/pricing">Pricing</NavLink>
         </li>
+       
         <li>
-          <NavLink activeClassName="active" className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" to="/purchase">Purchase</NavLink>
+          <NavLink activeClassName="active" className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" to="/blogs">Blog</NavLink>
         </li>
         <li>
-          <NavLink activeClassName="active" className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" to="">Blog</NavLink>
+          <NavLink activeClassName="active" className="py-3 my-3 md:my-0 px-2 text-base hover:text-white" to="/about">About</NavLink>
         </li>
       
       </ul>

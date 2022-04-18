@@ -13,6 +13,8 @@ import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Payment from "./components/Payment/Payment";
 import Footer from "./components/Footer/Footer";
 import ForgotPass from "./components/ForgotPass/ForgotPass";
+import Blogs from "./components/Blogs/Blogs";
+import About from "./components/About/About";
 
 function App() {
   return (
@@ -25,8 +27,20 @@ function App() {
         <Route path="/pricing" element={<Pricing></Pricing>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
-        <Route path="/forgotpassword" element={<ForgotPass></ForgotPass>}></Route>
-        <Route path="/payment" element={<Payment></Payment>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
+        <Route
+          path="/forgotpassword"
+          element={<ForgotPass></ForgotPass>}
+        ></Route>
+        <Route
+          path="/payment"
+          element={
+            <RequireAuth>
+              <Payment></Payment>
+            </RequireAuth>
+          }
+        ></Route>
         <Route
           path="/purchase/:id"
           element={
