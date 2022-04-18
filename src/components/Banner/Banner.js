@@ -4,7 +4,7 @@ import bannerImage from "./header-img.png";
 
 const Banner = () => {
   return (
-    <div className="w-4/5 mx-auto grid grid-cols-1 md:grid-cols-2 ">
+    <div className="w-4/5 mx-auto grid mt-32 grid-cols-1 md:grid-cols-2 ">
        
       <div className="flex justify-start items-center ">
         <div>

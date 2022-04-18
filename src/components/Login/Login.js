@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,6 +10,8 @@ import {
 } from "react-firebase-hooks/auth";
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [signInWithEmailAndPassword, loginuser, loginloading, loginerror] =
@@ -37,7 +39,10 @@ const Login = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(email, password);
+    signInWithEmailAndPassword(email, password)
+    .then(()=> {
+      navigate(from,{replace:true})
+    })
 
     if (loginuser) {
       toast.success("Login successfully");
@@ -45,6 +50,7 @@ const Login = () => {
       toast.error(loginerror.message);
     }
   };
+  const from = location?.state?.from?.pathname || "/"
   const githubLogin = () => {
     signInWithGithub();
     if (githubuser) {
@@ -55,7 +61,11 @@ const Login = () => {
   };
 
   const googleSignin = () => {
-    SignInWithGoogle();
+    SignInWithGoogle()
+    .then(()=>{
+      navigate(from,{replace:true})
+    })
+    
     if (googleuser) {
       toast.success("Login successfully");
     } else {
