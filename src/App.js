@@ -11,6 +11,8 @@ import Trainer from "./components/Trainer/Trainer";
 import Purchase from "./components/Purchase/Purchase";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Payment from "./components/Payment/Payment";
+import Footer from "./components/Footer/Footer";
+import ForgotPass from "./components/ForgotPass/ForgotPass";
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
         <Route path="/pricing" element={<Pricing></Pricing>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
+        <Route path="/forgotpassword" element={<ForgotPass></ForgotPass>}></Route>
         <Route path="/payment" element={<Payment></Payment>}></Route>
         <Route
           path="/purchase/:id"
@@ -35,6 +38,7 @@ function App() {
 
         <Route path="*" element={<Notfound></Notfound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

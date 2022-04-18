@@ -52,7 +52,11 @@ const Login = () => {
   };
   const from = location?.state?.from?.pathname || "/"
   const githubLogin = () => {
-    signInWithGithub();
+    signInWithGithub()
+    .then(()=> {
+      navigate(from,{replace:true})
+    })
+    
     if (githubuser) {
       toast.success("Login successfully");
     } else {
@@ -109,10 +113,17 @@ const Login = () => {
           <ToastContainer></ToastContainer>
         </form>
         <p>
-          Are you new ?{" "}
+          Are you new ?
           <Link className="text-blue-700" to="/signup">
-            {" "}
+            
             Please Signup..
+          </Link>
+        </p>
+        <p>
+          Forgot password ?
+          <Link className="text-blue-700" to="/forgotpassword">
+            
+            Reset password.
           </Link>
         </p>
         <div className="flex items-center">

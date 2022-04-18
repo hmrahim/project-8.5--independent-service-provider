@@ -4,6 +4,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useSendEmailVerification } from 'react-firebase-hooks/auth';
 const Signup = () => {
   const [name,setName] = useState("")
   const [email,setEmail] = useState("")
@@ -14,6 +15,7 @@ const Signup = () => {
     Signuploading,
     Signuperror,
   ] = useCreateUserWithEmailAndPassword(auth);
+  const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
   const handleName= e=> {
     setEmail(e.target.value)
   }
@@ -24,11 +26,16 @@ const Signup = () => {
     setPassword(e.target.value)
   }
 
-  const handleSubmit = e=> {
+  const handleSubmit =  e=> {
     e.preventDefault()
     createUserWithEmailAndPassword(email,password)
+    .then(async ()=> {
+      await sendEmailVerification()
+      
+    })
+
     if(Signupuser){
-      toast("Signup successfully")
+      toast("Signup successfully and verifiaction email sent")
 
     }else{
       toast(Signuperror.message)
