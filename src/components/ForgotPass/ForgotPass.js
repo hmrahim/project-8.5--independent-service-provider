@@ -13,12 +13,11 @@ const ForgotPass = () => {
 
     const handleSubmit = e=> {
         e.preventDefault()
-        sendPasswordResetEmail(email)
-        
+        sendPasswordResetEmail(email) 
         .then(()=> {
             toast("Check your email and reset password")
         })
-
+        console.log(email)
     }
     return (
         <div className='w-full md:w-4/5 mx-auto'>
